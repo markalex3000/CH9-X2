@@ -13,24 +13,23 @@ Test the class (of course: test early and often).
 This is the header file with the Class definition
 */
 
-namespace CH9X2_Date {
+namespace CH9X2 {
 
-	class Date
-	{
+	class Name_pairs {
 	public:
-		Date();
-		~Date();
+		class Invalid {};		//to throw as an exception
+
+		Name_pairs();			//Default constructor
+		~Name_pairs();			//default destructor
+
+		int read_names();
+		int read_ages();
+		int print();
+		int sort();
 
 	private:
-
+		vector<string> name{};
+		vector<double> age{};
+		vector<string> temp_name{};
 	};
-
-	Date::Date()
-	{
-	}
-
-	Date::~Date()
-	{
-	}
-
 }
