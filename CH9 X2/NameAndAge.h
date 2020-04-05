@@ -13,19 +13,19 @@ Test the class (of course: test early and often).
 This is the header file with the Class definition
 */
 
-namespace CH9X2 {
+namespace NameAndAge {
 
 	class Name_pairs {
 	public:
 		class Invalid {};		//to throw as an exception
 
 		Name_pairs();			//Default constructor
-		~Name_pairs();			//default destructor
+		Name_pairs(string n, double a);  //Constructoe
 
 		int read_names();
 		int read_ages();
 		int print();
-		int sort();
+//		int sort();
 
 	private:
 		vector<string> name{};
