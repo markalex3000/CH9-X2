@@ -24,7 +24,7 @@ global variables
 
 
 /*
-functions declarations
+function declarations
 */
 
 
