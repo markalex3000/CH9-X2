@@ -25,7 +25,7 @@ namespace NameAndAge {
 		int read_names();
 		int read_ages();
 		int print();
-//		int sort();
+		int sort();
 
 	private:
 		vector<string> name{};

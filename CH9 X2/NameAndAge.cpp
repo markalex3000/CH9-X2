@@ -44,6 +44,12 @@ namespace NameAndAge {
 		cout << "Enter names (\'X\' to exit): ";
 		while (cin >> temp_s) {
 			if (temp_s != "X") {
+				if (count == 0)
+				{
+					name.pop_back();
+					age.pop_back();
+					temp_name.pop_back();
+				}
 				count++;
 				name.push_back(temp_s);
 				continue;
@@ -79,6 +85,29 @@ namespace NameAndAge {
 		}
 	
 
-//	int Name_pairs::sort() {}
+	int Name_pairs::sort() {
+		NameAndAge::Name_pairs Sorted_NP;
+		
+		int va_index{ 0 };
+		int sa_index{ 0 };
 
+		int count{ 0 };
+	
+		Sorted_NP.name = name;
+		Sorted_NP.age = age;
+
+		std::sort(Sorted_NP.name.begin(), Sorted_NP.name.end());
+		for (string s : Sorted_NP.name) {
+			va_index = 0;
+			for (auto vn_itr = name.begin(); vn_itr < name.end(); vn_itr++) {
+				if (s == *vn_itr) Sorted_NP.age.at(sa_index) = age.at(va_index);
+				va_index++;
+			}
+			sa_index++;
+			count++;
+		}
+		name = Sorted_NP.name;
+		age = Sorted_NP.age;
+		return count;
+	}
 }  //end namespace

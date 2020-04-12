@@ -47,7 +47,12 @@ int main() {
 
 	cout << "Printing the list of names and ages...\n\n";
 	counter = TheList.print();
-	cout << "Printed out " << counter << "Name and Age pairs...\n\n";
+	cout << "Printed out " << counter << " Name and Age pairs...\n\n";
+
+	cout << "Sorting...\n";
+	cout << "Sorted " << TheList.sort() << " name pairs:\n";
+	counter = TheList.print();
+
 
 	keep_window_open();
 }
