@@ -25,11 +25,26 @@ namespace NameAndAge {
 		int read_names();
 		int read_ages();
 		int print();
+		ostream& output(ostream& os);
 		int sort();
+
+		//functions needed to access characteristics or elements of the vectors//
+
+		int length_of_name_vector() const;
+		int length_of_age_vector() const;
+		string get_name_from_name_vector(int index) const;
+		double get_age_from_age_vector(int index) const;
+
+	
 
 	private:
 		vector<string> name{};
 		vector<double> age{};
 		vector<string> temp_name{};
 	};
+
+	// Helper functions
+
+	ostream& operator<<(ostream& os, Name_pairs& np);
+	bool operator==(const Name_pairs& NPa, const Name_pairs& NPb);
 }

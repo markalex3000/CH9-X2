@@ -37,6 +37,7 @@ main
 
 int main() {
 	NameAndAge::Name_pairs TheList;
+	NameAndAge::Name_pairs TheOtherList;
 	int counter{ 0 };
 
 	counter = TheList.read_names();
@@ -49,10 +50,30 @@ int main() {
 	counter = TheList.print();
 	cout << "Printed out " << counter << " Name and Age pairs...\n\n";
 
+	counter = TheOtherList.read_names();
+	cout << "Read " << counter << " names.\n";
+
+	counter = TheOtherList.read_ages();
+	cout << "Read " << counter << " ages.\n";
+
+	cout << "Printing the list of names and ages...\n\n";
+	counter = TheOtherList.print();
+	cout << "Printed out " << counter << " Name and Age pairs...\n\n";
+
+	cout << "Printing the list of names and ages using the operator and output...\n\n";
+	cout << TheList;
+
+	/*
 	cout << "Sorting...\n";
 	cout << "Sorted " << TheList.sort() << " name pairs:\n";
 	counter = TheList.print();
+	*/
 
+	if (TheList == TheOtherList)
+	{
+		cout << "The lists are the same!\n";
+	}
+	else cout << "The lists are NOT the same!\n";
 
 	keep_window_open();
 }

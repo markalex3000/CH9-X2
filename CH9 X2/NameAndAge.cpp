@@ -83,7 +83,91 @@ namespace NameAndAge {
 			}
 			return count;
 		}
+
+	ostream& Name_pairs::output(ostream& os) {
+		auto age_itr = age.begin();
+		for (string s : name) {
+			os << s << " is " << *age_itr << '\n';
+			age_itr++;
+			}
+		return os;
+	}
 	
+	ostream& operator<<(ostream& os, Name_pairs& np)
+	{
+		return np.output(os);
+	}
+
+	int Name_pairs::length_of_name_vector() const
+	{
+		return name.size();
+	}
+
+	int Name_pairs::length_of_age_vector() const
+	{
+		return age.size();
+	}
+
+	string Name_pairs::get_name_from_name_vector(int index) const
+	{
+		return name.at(index);
+	}
+
+	double Name_pairs::get_age_from_age_vector(int index) const
+	{
+		return age.at(index);
+	}
+
+	bool operator==(const Name_pairs& NPa, const Name_pairs& NPb)
+	{
+		bool len = false;
+		bool match = false;
+		// test 1 - are the lengths of the two key vectors the same? //
+		// testing name vector //
+		NPa.length_of_name_vector() == NPb.length_of_name_vector() ? len = true : len = false;
+		if (len == false)
+		{
+			return(false);
+		}
+		//testing age vector //
+		NPa.length_of_age_vector() == NPb.length_of_age_vector() ? len = true : len = false;
+		if (len == false)
+		{
+			return(false);
+		}
+		//test each element of name vector //
+
+		for (int i = 0; i < NPa.length_of_name_vector(); i++)
+		{
+			NPa.get_name_from_name_vector(i) == NPb.get_name_from_name_vector(i) ? match = true : match = false;
+			if (match == false)
+			{
+				return(false);
+			}
+		}
+
+		//test each element of age vector //
+		for (int i = 0; i < NPa.length_of_age_vector(); i++)
+		{
+			NPa.get_age_from_age_vector(i) == NPb.get_age_from_age_vector(i) ? match = true : match = false;
+			if (match == false)
+			{
+				return(false);
+			}
+		}
+
+		// if both vectors have the same number of elements and the emlements are the same in the same order
+		// they are equal
+
+		return(true);
+
+
+
+
+		
+	}
+
+
 
 	int Name_pairs::sort() {
 		NameAndAge::Name_pairs Sorted_NP;
